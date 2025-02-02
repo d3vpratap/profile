@@ -4,9 +4,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import CvDownload from "./components/CvDownload";
-
-     
-
+import Blogs from "./components/Blogs";
 
 function App() {
   return (
@@ -36,9 +34,11 @@ function App() {
                 }}
               >
                 <p className="text-lg leading-relaxed sm:text-base">
-                  🚀 I am a passionate Full-Stack Developer skilled in
-                  JavaScript, TypeScript, Node.js, Express.js, React.js, Redux,
-                  and MongoDB.
+                  🚀 Hey, I’m Dev Pratap Singh! A passionate Full-Stack
+                  Developer specializing in MERN Stack with experience in
+                  backend development, real-time applications, and cloud
+                  deployment. I like building scalable applications, optimizing
+                  performance, and solving complex problems.
                 </p>
                 <br />
                 <p className="text-lg leading-relaxed mt-6 sm:text-base">
@@ -51,7 +51,6 @@ function App() {
                   Let's collaborate and innovate! 🚀
                 </p>
               </div>
-
               {/* Profile Image with 3D effect */}
               <div className="relative group flex justify-center">
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full blur-lg opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
