@@ -37,10 +37,10 @@ const Hero = () => {
         </h2>
 
         {/* Description */}
-        <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+        <p className="text-lg sm:text-xl text-black-300 max-w-3xl mx-auto mb-10">
           Passionate about crafting elegant solutions to complex problems with
-          **modern technologies**. Dedicated to building **scalable applications** and
-          providing **exceptional user experiences**.
+          modern technologies. Dedicated to building scalable applications and
+          providing exceptional user experiences.
         </p>
 
         {/* Social Links */}
