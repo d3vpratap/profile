@@ -13,19 +13,18 @@ function App() {
       <Hero />
 
       {/* About Section */}
-      <section className="about-section">
+      <section id="aboutme" className="about-section">
         <div className="max-w-6xl mx-auto px-6">
           {/* Section Heading */}
-          <h2  className="section-title">About Me</h2>
+          <h2 className="section-title">About Me</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             {/* About Content */}
-            <div id="aboutme" className="about-content">
+            <div className="about-content">
               <p>
                 🚀 Hey, I’m <b>Dev Pratap Singh</b>! A passionate Full-Stack
-                Developer specializing in MERN Stack with experience in
-                backend development, real-time applications, and cloud
-                deployment.
+                Developer specializing in MERN Stack with experience in backend
+                development, real-time applications, and cloud deployment.
               </p>
               <p className="mt-4">
                 🧠 I thrive on problem-solving and continuous learning,
