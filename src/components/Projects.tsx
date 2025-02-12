@@ -3,6 +3,14 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "SkillSync",
+    description:
+      "Personalizes AI Path-Pilot providing up to date Industry Insights, Skill Assessments, Resume Builder and Cover Letter ",
+    image: "https://ibb.co/60pjm3kB",
+    tags: ["Next.js", "Prisma", "Inngest", "GeminiAPI"],
+    githubUrl: "https://github.com/d3vpratap/skillsync/tree/main",
+  },
+  {
     title: "Shopkart",
     description:
       "A full-featured e-commerce platform with real-time inventory management and secure payment processing.",
