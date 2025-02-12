@@ -6,7 +6,8 @@ const projects = [
     title: "SkillSync",
     description:
       "Personalizes AI Path-Pilot providing up to date Industry Insights, Skill Assessments, Resume Builder and Cover Letter ",
-    image: "https://ibb.co/60pjm3kB",
+    image:
+      "https://i.ibb.co/b5ycPSkJ/Screenshot-2025-02-07-at-12-20-21-PM-Photoroom.png",
     tags: ["Next.js", "Prisma", "Inngest", "GeminiAPI"],
     githubUrl: "https://github.com/d3vpratap/skillsync/tree/main",
   },
