@@ -60,26 +60,71 @@ const Projects = () => {
   return (
     <section className="py-20 bg-gray-900" id="projects">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-white text-center mb-16">
+        <h2 className="text-4xl font-bold text-white text-center mb-12">
           Featured Projects
         </h2>
 
-        <div className="overflow-hidden relative">
+        {/* For large screens: Grid View */}
+        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transform hover:scale-110 transition-all duration-500"
+                />
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  {project.title}
+                </h3>
+                <p className="text-gray-400 mb-4">{project.description}</p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="px-3 py-1 bg-gray-700 text-gray-300 text-sm rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-4">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  >
+                    <Github size={16} />
+                    <span>Source</span>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* For smaller screens: Swipeable View */}
+        <div className="md:hidden overflow-hidden relative mt-6">
           <motion.div
-            className="flex gap-6"
-            initial={{ x: 0 }}
-            animate={{ x: ["0%", "-100%"] }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 9,
-              ease: "linear",
-            }}
+            className="flex gap-6 cursor-grab"
+            drag="x"
+            dragConstraints={{ left: -500, right: 0 }}
+            dragElastic={0.2}
           >
-            {projects.concat(projects).map((project, index) => (
+            {projects.map((project, index) => (
               <div
                 key={index}
-                className="bg-gray-800 rounded-xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300 w-80 flex-shrink-0"
+                className="w-80 flex-shrink-0 bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -95,7 +140,7 @@ const Projects = () => {
                   </h3>
                   <p className="text-gray-400 mb-4">{project.description}</p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
@@ -111,7 +156,7 @@ const Projects = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-400 hover:text-gray-300 transition-colors"
+                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
                     >
                       <Github size={16} />
                       <span>Source</span>
@@ -122,6 +167,9 @@ const Projects = () => {
             ))}
           </motion.div>
         </div>
+      </div>
+      <div>
+        <h1 className="mt-9 font-bold text-2xl text-center">Made by d3v</h1>
       </div>
     </section>
   );

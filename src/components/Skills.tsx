@@ -12,7 +12,7 @@ interface Skill {
 const skills: Skill[] = [
   {
     title: "Frontend Development",
-    description: "React, TypeScript, Tailwind CSS",
+    description: "Next.js, React.js, TypeScript, Tailwind CSS",
     icon: Code,
     color: "bg-blue-600",
     proficiency: 95,
@@ -26,7 +26,7 @@ const skills: Skill[] = [
   },
   {
     title: "Database Management",
-    description: "MongoDB, SQL",
+    description: "MongoDB, SQL, PostgresQL",
     icon: Database,
     color: "bg-purple-600",
     proficiency: 85,
