@@ -5,56 +5,60 @@ const projects = [
   {
     title: "SkillSync",
     description:
-      "Personalizes AI Path-Pilot providing up to date Industry Insights, Skill Assessments, Resume Builder and Cover Letter ",
+      "An AI-powered career guidance platform that personalizes learning paths using real-time industry insights, skill gap analysis, and intelligent resume generation.",
     image:
       "https://i.ibb.co/b5ycPSkJ/Screenshot-2025-02-07-at-12-20-21-PM-Photoroom.png",
-    tags: ["Next.js", "Prisma", "Inngest", "GeminiAPI"],
+    tags: ["Next.js", "Prisma", "Inngest", "Gemini API", "PostgreSQL"],
     githubUrl: "https://github.com/d3vpratap/skillsync/tree/main",
+    highlights: [
+      "Designed an end-to-end AI workflow for skill assessment and career recommendations",
+      "Integrated Gemini API to generate personalized resumes and cover letters",
+      "Used Inngest for background jobs and event-driven workflows",
+      "Implemented scalable data modeling with Prisma ORM",
+    ],
   },
   {
-    title: "Shopkart",
+    title: "ShopKart",
     description:
-      "A full-featured e-commerce platform with real-time inventory management and secure payment processing.",
+      "A production-ready e-commerce platform supporting multi-vendor workflows, secure authentication, and online payments.",
     image: "https://i.ibb.co/VwHPn0W/shopkart-Home.jpg",
-    tags: ["Node.js", "Express.js", "Passport", "MongoDB"],
+    tags: ["Node.js", "Express.js", "MongoDB", "Passport.js", "Razorpay"],
     githubUrl: "https://github.com/d3vpratap/shopkart",
+    highlights: [
+      "Implemented secure authentication and role-based authorization using Passport.js",
+      "Integrated Razorpay for real-world payment processing",
+      "Designed REST APIs for products, orders, reviews, and users",
+      "Ensured data isolation so sellers can manage only their own products",
+    ],
   },
   {
     title: "NodeTalk",
     description:
-      "A chat application with individual & group chat functionality.",
+      "A real-time chat application supporting individual and group messaging using WebSockets.",
     image:
-      "https://plus.unsplash.com/premium_photo-1677252438450-b779a923b0f6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhdGFwcHxlbnwwfHwwfHx8MA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1677252438450-b779a923b0f6?w=800&auto=format&fit=crop&q=60",
     tags: ["React", "Node.js", "Socket.io", "MongoDB"],
     githubUrl: "https://github.com/d3vpratap/NodeTalk2.0",
   },
   {
     title: "AI Chatbot",
-    description: "An AI-driven chatbot built with TensorFlow and NLP.",
-    image:
-      "https://media.istockphoto.com/id/1465545513/photo/chatbot.webp?a=1&b=1&s=612x612&w=0&k=20&c=4ffIHW4R87I81mtBWwFj57casqjDSTcHXFHDD1Xqi2A=",
+    description:
+      "An AI-driven chatbot built using NLP techniques to assist users with mental health-related conversations.",
+    image: "https://media.istockphoto.com/id/1465545513/photo/chatbot.webp",
     tags: ["Python", "TensorFlow", "NLP", "MongoDB"],
     githubUrl: "https://github.com/d3vpratap/AI-CHATBOT-FOR-MENTAL-HEALTH",
   },
   {
-    title: "Blog Posting",
-    description:
-      "A blog posting application built using SQL database and Sequelize ORM for efficient data management.",
-    image:
-      "https://images.unsplash.com/photo-1526280760714-f9e8b26f318f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGJsb2clMjBwb3N0aW5nJTIwc2l0ZXxlbnwwfHwwfHx8MA%3D%3D",
-    tags: ["Node.js", "SQL", "Sequelize", "Express", "JavaScript"],
-    githubUrl: "https://github.com/d3vpratap/Blog-Posting",
-  },
-  {
     title: "Documber",
     description:
-      "Documber is a real-time-sync document editor that allows multiple users to collaborate on documents simultaneously.",
+      "A collaborative document editor with real-time synchronization across multiple users.",
     image:
-      "https://plus.unsplash.com/premium_photo-1669658981976-4b72e927a902?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZG9jc3xlbnwwfHwwfHx8MA%3D%3D",
-    tags: ["Node.js", "Sockets", "Express", "TypeScript"],
+      "https://plus.unsplash.com/premium_photo-1669658981976-4b72e927a902?w=800&auto=format&fit=crop&q=60",
+    tags: ["Node.js", "Socket.io", "Express", "TypeScript"],
     githubUrl: "https://github.com/d3vpratap/Documber",
   },
 ];
+
 
 const Projects = () => {
   return (
@@ -85,6 +89,13 @@ const Projects = () => {
                   {project.title}
                 </h3>
                 <p className="text-gray-400 mb-4">{project.description}</p>
+                {project.highlights && (
+                  <ul className="text-gray-400 text-sm space-y-1 mb-4 list-disc list-inside">
+                    {project.highlights.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                )}
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, tagIndex) => (
@@ -114,11 +125,11 @@ const Projects = () => {
         </div>
 
         {/* For smaller screens: Swipeable View */}
-        <div className="md:hidden overflow-hidden relative mt-6">
+        <div className="md:hidden overflow-x-visible relative mt-6">
           <motion.div
             className="flex gap-6 cursor-grab"
             drag="x"
-            dragConstraints={{ left: -500, right: 0 }}
+            dragConstraints={{ left: -1200, right: 0 }}
             dragElastic={0.2}
           >
             {projects.map((project, index) => (
@@ -169,7 +180,9 @@ const Projects = () => {
         </div>
       </div>
       <div>
-        <h1 className="mt-9 font-bold text-2xl text-center">Made by d3v</h1>
+        <h1 className="mt-9 font-bold text-2xl text-center">
+          ...Thank you for the visit...
+        </h1>
       </div>
     </section>
   );

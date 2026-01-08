@@ -1,103 +1,100 @@
-import React from "react";
-import { Code, Database, Server, Layers } from "lucide-react";
+import { Code, Database, Server, Layers, Wrench } from "lucide-react";
 
-interface Skill {
+type SkillCategory = {
   title: string;
-  description: string;
+  items: string[];
   icon: React.ElementType;
-  color: string;
-  proficiency?: number;
-}
+};
 
-const skills: Skill[] = [
+const skillCategories: SkillCategory[] = [
+  {
+    title: "Programming Languages",
+    items: ["TypeScript", "JavaScript (ES6+)", "Python", "C++"],
+    icon: Code,
+  },
   {
     title: "Frontend Development",
-    description: "Next.js, React.js, TypeScript, Tailwind CSS",
-    icon: Code,
-    color: "bg-blue-600",
-    proficiency: 95,
+    items: ["React.js", "Next.js", "Tailwind CSS", "Vite"],
+    icon: Layers,
   },
   {
     title: "Backend Development",
-    description: "Node.js, Express, REST APIs",
+    items: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "Authentication & Authorization",
+    ],
     icon: Server,
-    color: "bg-emerald-600",
-    proficiency: 90,
   },
   {
-    title: "Database Management",
-    description: "MongoDB, SQL, PostgresQL",
+    title: "Databases",
+    items: ["MongoDB", "PostgreSQL", "SQL", "Prisma ORM"],
     icon: Database,
-    color: "bg-purple-600",
-    proficiency: 85,
   },
   {
-    title: "System Architecture",
-    description: "Microservices, Docker, AWS",
+    title: "System Design & Architecture",
+    items: ["Microservices", "Event-driven Architecture", "Background Jobs"],
     icon: Layers,
-    color: "bg-orange-600",
-    proficiency: 92,
+  },
+  {
+    title: "Tools & Platforms",
+    items: ["Git", "Docker", "AWS (EC2)", "Postman"],
+    icon: Wrench,
   },
 ];
 
-const Skills: React.FC = () => {
+const Skills = () => {
   return (
     <section
-      className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
       id="skills"
+      className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
     >
       <div className="max-w-6xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-16">
+        {/* Header */}
+        <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-white mb-4">
-            Technical Expertise
+            Technical Skills
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills across different
-            areas of software development.
+            Technologies and tools I use to design, build, and scale
+            production-ready applications.
           </p>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className={`p-6 rounded-xl cursor-pointer ${skill.color} flex flex-col 
-                transform transition-all duration-300 hover:brightness-125 hover:scale-105 shadow-lg 
-                bg-opacity-80 backdrop-blur-md border border-gray-700`}
-            >
-              {/* Title + Icon */}
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {skill.title}
-                  </h3>
-                  <p className="text-white/80 text-sm leading-relaxed">
-                    {skill.description}
-                  </p>
-                </div>
-                <div className="p-3 bg-white/10 rounded-lg shadow-md">
-                  <skill.icon className="text-white" size={28} />
-                </div>
-              </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((category, index) => {
+            const Icon = category.icon;
 
-              {/* Proficiency Bar */}
-              {skill.proficiency && (
-                <div className="mt-6">
-                  <div className="h-2 bg-black/30 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-white rounded-full transition-all duration-1000 ease-out"
-                      style={{
-                        width: `${skill.proficiency}%`,
-                        boxShadow: "0 0 10px rgba(255,255,255,0.5)",
-                      }}
-                    />
+            return (
+              <div
+                key={index}
+                className="p-6 rounded-xl bg-gray-800/70 backdrop-blur-md border border-gray-700
+                hover:border-indigo-500 transition-all duration-300"
+              >
+                {/* Title */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-lg bg-indigo-500/20">
+                    <Icon size={22} className="text-indigo-400" />
                   </div>
+                  <h3 className="text-lg font-semibold text-white">
+                    {category.title}
+                  </h3>
                 </div>
-              )}
-            </div>
-          ))}
+
+                {/* Skill List */}
+                <ul className="text-gray-300 text-sm space-y-2">
+                  {category.items.map((item, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

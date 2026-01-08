@@ -1,4 +1,3 @@
-import React from "react";
 import { Code, User, Briefcase, Star } from "lucide-react";
 
 const AnimatedCube = () => {
