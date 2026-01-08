@@ -34,24 +34,6 @@ const Hero = () => {
           , and modern system design principles. Experienced in shipping
           end-to-end features from UI to backend APIs.
         </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
-          <a
-            href="#projects"
-            className="px-6 py-3 rounded-lg bg-white text-indigo-700 font-semibold hover:bg-indigo-100 transition"
-          >
-            View Projects
-          </a>
-
-          <a
-            href="/Dev_Pratap_Singh_Resume.pdf"
-            className="px-6 py-3 rounded-lg bg-indigo-500 text-white font-semibold hover:bg-indigo-400 transition flex items-center gap-2"
-          >
-            <FileText size={18} />
-            Resume
-          </a>
-        </div>
       </div>
     </section>
   );

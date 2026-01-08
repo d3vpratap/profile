@@ -50,7 +50,7 @@ const Navigation = () => {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="/Dev_Pratap_Singh_Resume.pdf"
+              href="https://drive.google.com/file/d/11KqCCBThg79Mr3iAUKi3U1y4NCAljbL6/view?usp=sharing"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-500 text-white font-medium hover:bg-indigo-400 transition"
             >
               <FileText size={16} />
