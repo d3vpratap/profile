@@ -1,5 +1,6 @@
-import { ExternalLink, Github } from "lucide-react";
+import { Github } from "lucide-react";
 import { motion } from "framer-motion";
+import ProjectCard3D from "./ProjectCard3D";
 
 const projects = [
   {
@@ -59,72 +60,22 @@ const projects = [
   },
 ];
 
-
 const Projects = () => {
   return (
-    <section className="py-20 bg-gray-900" id="projects">
+    <section className="py-20 bg-dark-surface" id="projects">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-white text-center mb-12">
+        <h2 className="text-4xl font-bold text-text-primary text-center mb-12">
           Featured Projects
         </h2>
 
-        {/* For large screens: Grid View */}
+        {/* DESKTOP: 3D CARDS */}
         <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transform hover:scale-110 transition-all duration-500"
-                />
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 mb-4">{project.description}</p>
-                {project.highlights && (
-                  <ul className="text-gray-400 text-sm space-y-1 mb-4 list-disc list-inside">
-                    {project.highlights.map((point, i) => (
-                      <li key={i}>{point}</li>
-                    ))}
-                  </ul>
-                )}
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 bg-gray-700 text-gray-300 text-sm rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-4">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                  >
-                    <Github size={16} />
-                    <span>Source</span>
-                  </a>
-                </div>
-              </div>
-            </motion.div>
+            <ProjectCard3D key={index} project={project} />
           ))}
         </div>
 
-        {/* For smaller screens: Swipeable View */}
+        {/* MOBILE: SIMPLE SWIPE CARDS */}
         <div className="md:hidden overflow-x-visible relative mt-6">
           <motion.div
             className="flex gap-6 cursor-grab"
@@ -135,54 +86,47 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="w-80 flex-shrink-0 bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="w-80 flex-shrink-0 bg-dark-card rounded-xl overflow-hidden border border-dark-border shadow-dark-lg"
               >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transform hover:scale-110 transition-all duration-500"
-                  />
-                </div>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-40 w-full object-cover"
+                />
 
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3">
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-text-primary mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 mb-4">{project.description}</p>
+                  <p className="text-text-tertiary text-sm mb-3">
+                    {project.description}
+                  </p>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, tagIndex) => (
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.tags.map((tag, i) => (
                       <span
-                        key={tagIndex}
-                        className="px-3 py-1 bg-gray-700 text-gray-300 text-sm rounded-full"
+                        key={i}
+                        className="px-2 py-1 bg-dark-elevated text-text-secondary text-xs rounded-full border border-dark-border"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex gap-4">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                    >
-                      <Github size={16} />
-                      <span>Source</span>
-                    </a>
-                  </div>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-text-tertiary hover:text-accent transition focus-visible:outline-accent"
+                  >
+                    <Github size={14} />
+                    Source
+                  </a>
                 </div>
               </div>
             ))}
           </motion.div>
         </div>
-      </div>
-      <div>
-        <h1 className="mt-9 font-bold text-2xl text-center">
-          ...Thank you for the visit...
-        </h1>
       </div>
     </section>
   );
